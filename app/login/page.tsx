@@ -1,6 +1,5 @@
 import LoginPage from "@/ui/LoginPage";
 import type { Metadata } from "next";
-import SessionProviderWrapper from "@/providers/SessionProviderWrapper";
 
 
 export const metadata: Metadata = {
@@ -10,11 +9,9 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <SessionProviderWrapper>
     <section className="flex items-center justify-center min-h-screen text-white">
      <LoginPage/>
     </section>
-    </SessionProviderWrapper>
   );
 };
 

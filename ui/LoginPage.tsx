@@ -30,7 +30,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (isLogin) {
+    if (isLogin && patientPortal) {
       if(!formData.email || !formData.password) return;
       try {
         const serverResponse = await axios.post("/api/auth/login",{formData}) 
@@ -43,7 +43,7 @@ const LoginPage = () => {
       catch (err) {
         setUserMsg(err?.response?.data?.message)
       }
-    } else {
+    } else if(!isLogin && patientPortal) {
       if(!formData.email || !formData.password || !formData.name) return;
       try {
         const serverResponse = await axios.post("/api/auth/registration",{formData}) 
@@ -55,8 +55,20 @@ const LoginPage = () => {
         setUserMsg(err?.response?.data?.message)
       }
     }
+    else{
+      //it is a admin request ...
+      if(!formData.hospital_id || !formData.hospital_password) return
+      try{
+        const server_response = await axios.post('/api/auth/login',{formData})
+        if(server_response){
+          window.location.reload()
+        }
+      }
+      catch(err){
+        setUserMsg(err?.response?.data?.message)
+      }
+    }
   };
-
 
   return (
     <form onSubmit={handleSubmit} className="p-10 rounded-2xl shadow-2xl w-full max-w-md border border-gray-700">
@@ -144,7 +156,7 @@ const LoginPage = () => {
       </button>
 
       {/* ✅ Google Login Button */}
-      <GoogleLogin patientPortal = {patientPortal} setUserMsg = {setUserMsg}/>
+      <GoogleLogin patientPortal = {patientPortal}/>
 
       {patientPortal && (
         <p className="text-center text-gray-400 text-sm">
@@ -171,4 +183,3 @@ const LoginPage = () => {
 }
 
 export default LoginPage
-

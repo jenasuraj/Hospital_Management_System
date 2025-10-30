@@ -4,7 +4,7 @@ import HomePage from "@/ui/HomePage";
 
 
 export default function Home() {
-  console.log("hello...")
+  console.log(" / Rendered in Server")
   return (
     <>
       <HomePage/>

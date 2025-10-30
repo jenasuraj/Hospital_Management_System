@@ -6,9 +6,7 @@ interface AuthContextType {
   authenticated: boolean;
   setAuthenticated: (value: boolean) => void;
 }
-
 const AuthContext = createContext<AuthContextType | null>(null);
-
 interface AuthProviderProps {
   children: ReactNode;
 }
@@ -27,8 +25,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
     fetchUser();
   }, []);
-
-  console.log("in context",authenticated)
+  console.log("context data is",authenticated)
 
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
@@ -36,5 +33,4 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     </AuthContext.Provider>
   );
 };
-
 export const useAuth = () => useContext(AuthContext);

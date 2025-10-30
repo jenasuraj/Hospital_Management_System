@@ -7,6 +7,7 @@ export async function GET(req: NextRequest) {
     // 1️⃣ Manual JWT cookie
     const token = req.cookies.get("token")?.value;
     const gtoken = req.cookies?.get("next-auth.session-token")?.value;
+    const admin_token = req.cookies?.get("admin_token")?.value;
 
     if (token) {
       const decoded = jwt.verify(token, process.env.JWT_SECRET!);
@@ -20,6 +21,13 @@ export async function GET(req: NextRequest) {
     if(gtoken){
       return NextResponse.json(
       { success: true,source:'google',message: "Google auth login successfull"},
+      { status: 200 }
+    );
+    }
+
+    if(admin_token){
+      return NextResponse.json(
+      { success: true,source:'admin_mannual',message: "admin login successfull"},
       { status: 200 }
     );
     }

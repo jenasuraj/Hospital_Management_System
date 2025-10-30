@@ -2,16 +2,9 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
-import axios from "axios";
 
 
-const GoogleLogin = ({
-  patientPortal,
-  setUserMsg,
-}: {
-  patientPortal: boolean;
-  setUserMsg: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+const GoogleLogin = ({ patientPortal,}: { patientPortal: boolean;}) => {
 
 
 const handleGoogleLogin = async () => {

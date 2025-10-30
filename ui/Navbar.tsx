@@ -8,7 +8,6 @@ import { BiUser } from "react-icons/bi";
 import { signOut } from "next-auth/react";
 
 const Navbar = () => {
-  console.log("in navbar ...")
   const auth = useAuth();
   if (!auth) return null;
   const { authenticated } = auth;
@@ -27,6 +26,7 @@ const Navbar = () => {
       signOut({ callbackUrl: "/login" })
     }
   };
+
 
   return (
     <section className="fixed z-50 w-full h-20 bg-black-20  text-white flex items-center justify-between">
