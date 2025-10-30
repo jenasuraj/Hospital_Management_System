@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { neon } from '@neondatabase/serverless';
 import bcrypt from 'bcryptjs';
-import jwt  from 'jsonwebtoken';
 
 interface formDataType {
 name: string,
@@ -33,7 +32,8 @@ export async function POST(req: NextRequest) {
       VALUES (${formData.name}, ${formData.email}, ${hashedPassword},${formData.provider})
       RETURNING *;`;
     return NextResponse.json({ success: true, message: "User registered successfully",data:response[0]},{status:201});
-  } catch (error) {
+  } catch (err) {
+    console.log(err)
     return NextResponse.json({ success: false, message: "Server error while registering" }, { status: 502 });
   }
   }

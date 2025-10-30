@@ -15,10 +15,11 @@ export async function POST(req:NextRequest) {
     });
     return response;
   } catch (err) {
+    console.log(err)
     return NextResponse.json({ error: "Logout failed" }, { status: 500 });
   }
   }
-  else  if(admin_token){
+  else if(admin_token){
   try {
     const response = NextResponse.json({ message: "Logged out successfully",success:true },{status:200});
     response.cookies.set("admin_token", "", {
@@ -30,6 +31,7 @@ export async function POST(req:NextRequest) {
     });
     return response;
   } catch (err) {
+    console.log(err)
     return NextResponse.json({ error: "Logout failed" }, { status: 500 });
   }
   }

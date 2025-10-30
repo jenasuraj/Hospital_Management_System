@@ -23,6 +23,7 @@ const Navbar = () => {
     }
     catch(err){
       //its a google token
+      console.log(err)
       signOut({ callbackUrl: "/login" })
     }
   };
