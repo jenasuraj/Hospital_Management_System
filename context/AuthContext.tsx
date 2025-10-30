@@ -4,7 +4,7 @@ import axios from "axios";
 
 interface AuthContextType {
   authenticated: boolean;
-  setAuthenticated: (value: boolean) => void; // expose setter
+  setAuthenticated: (value: boolean) => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -15,7 +15,7 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [authenticated, setAuthenticated] = useState(false);
-
+  
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -27,6 +27,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
     fetchUser();
   }, []);
+
+  console.log("in context",authenticated)
 
   return (
     <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
