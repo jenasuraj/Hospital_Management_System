@@ -4,9 +4,11 @@ import axios from "axios";
 import { useAuth } from "@/context/AuthContext";
 import GoogleLogin from "./GoogleLogin";
 import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 
 const LoginPage = () => {
+  const pathname = usePathname()
   const searchParams = useSearchParams()
   const auth = useAuth();
   const [isLogin, setIsLogin] = useState(true);
@@ -21,6 +23,7 @@ const LoginPage = () => {
   return "";
   });
   
+  if(pathname?.startsWith('/dashboard')) return null;
 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

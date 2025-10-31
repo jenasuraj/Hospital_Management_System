@@ -7,6 +7,8 @@ import sujit from "@/public/rahul.jpg";
 import umanorth from "@/public/umanorth.jpg";
 import willina from "@/public/willina.jpg";
 
+
+
 const doctors = [
   {
     img: adil,
@@ -57,5 +59,5 @@ const doctors = [
     experience: "10 Years",
   },
 ];
+export default doctors
 
-export default doctors;
