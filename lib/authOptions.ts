@@ -40,22 +40,6 @@ export const authOptions: AuthOptions = {
         return `/login?error=server-error`;
       }
     },
-
-    async jwt({ token, account, profile }) {
-      if (account && profile) {
-        token.email = profile.email;
-        token.name = profile.name;
-        token.picture = profile.picture;
-      }
-      return token;
-    },
-
-    async session({ session, token }) {
-      session.user.email = token.email;
-      session.user.name = token.name;
-      session.user.picture = token.picture;
-      return session;
-    },
   },
 
   pages: {

@@ -1,6 +1,5 @@
-import LoginPage from "@/ui/LoginPage";
 import type { Metadata } from "next";
-
+import SuspenseWrapper from "@/wrappers/Suspense";
 
 export const metadata: Metadata = {
   title: "Login page",
@@ -9,9 +8,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <section className="flex items-center justify-center min-h-screen text-white">
-     <LoginPage/>
-    </section>
+  <SuspenseWrapper/>
   );
 };
 

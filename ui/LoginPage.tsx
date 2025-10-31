@@ -40,7 +40,7 @@ const LoginPage = () => {
         window.location.reload()
         } 
         }
-      catch (err) {
+      catch (err:any) {
         setUserMsg(err?.response?.data?.message)
       }
     } else if(!isLogin && patientPortal) {
@@ -51,7 +51,7 @@ const LoginPage = () => {
         setUserMsg(serverResponse?.data?.message)
         setIsLogin(true)
         }
-      } catch (err) {
+      } catch (err:any) {
         setUserMsg(err?.response?.data?.message)
       }
     }
@@ -64,12 +64,15 @@ const LoginPage = () => {
           window.location.reload()
         }
       }
-      catch(err){
+      catch(err: any){
         setUserMsg(err?.response?.data?.message)
       }
     }
   };
 
+
+
+  
   return (
     <form onSubmit={handleSubmit} className="p-10 rounded-2xl shadow-2xl w-full max-w-md border border-gray-700">
       <h2 className="text-3xl mb-6 text-center">
