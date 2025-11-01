@@ -1,15 +1,21 @@
-import React from 'react'
-import Sidebar from '@/ui/Sidebar'
+"use client";
 
-const layout = ({children}:Readonly<{children: React.ReactNode;}>) => {
-return (
-<>
-   <section className='w-full min-h-screen bg-white flex'>
-     <Sidebar/>    
-     {children}
-   </section>
-</>
-  )
-}
+import React from 'react';
+import Sidebar from '@/ui/Sidebar';
+import { usePathname } from 'next/navigation';
 
-export default layout
+
+
+const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+  const pathname = usePathname();
+  const role: string = pathname.startsWith('/dashboard/admin') ? 'admin' : pathname.startsWith('/dashboard/patient') ? 'patient' : ''
+  return (
+    <section className="w-full min-h-screen bg-white flex">
+      <Sidebar role = {role}/>
+      {children}
+    </section>
+  );
+};
+
+export default Layout;
+

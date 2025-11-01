@@ -1,16 +1,12 @@
 "use client"
 import React, { useState } from "react";
 import axios from "axios";
-import { useAuth } from "@/context/AuthContext";
 import GoogleLogin from "./GoogleLogin";
 import { useSearchParams } from "next/navigation";
-import { usePathname } from "next/navigation";
 
 
 const LoginPage = () => {
-  const pathname = usePathname()
   const searchParams = useSearchParams()
-  const auth = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [formData,setFormData] = useState({email:'',name:'',password:'',hospital_id:'',hospital_password:''}) 
   const [patientPortal,setPatientPortal] = useState(true)
@@ -23,7 +19,6 @@ const LoginPage = () => {
   return "";
   });
   
-  if(pathname?.startsWith('/dashboard')) return null;
 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +34,6 @@ const LoginPage = () => {
         const serverResponse = await axios.post("/api/auth/login",{formData}) 
         if(serverResponse){
         setUserMsg(serverResponse.data.message)
-        auth?.setAuthenticated(true);
         window.location.reload()
         } 
         }

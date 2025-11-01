@@ -9,10 +9,26 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const publicRoutes = ["/", "/login"];
 
-  if ((token || gtoken || admin_token) && publicRoutes.includes(pathname)) {
-    return NextResponse.redirect(new URL("/dashboard", req.url));
+
+if(token || gtoken){
+  if (publicRoutes.includes(pathname) ||  pathname == '/dashboard') {
+    return NextResponse.redirect(new URL("/dashboard/patient", req.url));
   }
-  if (!token && !gtoken && !admin_token && pathname.startsWith("/dashboard")) {
+   if(pathname.startsWith('/dashboard/admin')){
+    return NextResponse.redirect(new URL("/dashboard/patient", req.url));
+  }
+}
+
+else if(admin_token){
+  if (publicRoutes.includes(pathname) || pathname == '/dashboard') {
+    return NextResponse.redirect(new URL("/dashboard/admin", req.url));
+  }
+  if(pathname.startsWith('/dashboard/patient')){
+    return NextResponse.redirect(new URL("/dashboard/admin", req.url));
+  }
+}
+  
+if (!token && !gtoken && !admin_token && pathname.startsWith("/dashboard")) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
   return NextResponse.next();

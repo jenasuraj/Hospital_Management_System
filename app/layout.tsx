@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/ui/Footer";
 import Navbar from "@/ui/Navbar";
-import { AuthProvider } from "@/context/AuthContext"; // ✅ import your provider
+//import { AuthProvider } from "@/context/AuthContext"; // ✅ import your provider
 import { Poppins } from "next/font/google";
 
 
@@ -21,11 +21,9 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en">
       <body className={`${poppins.className}`}>
-        <AuthProvider>
             <Navbar />
           <main className={`w-full min-h-screen bg-black`}>{children}</main>
           <Footer />
-        </AuthProvider>
       </body>
     </html>
   );

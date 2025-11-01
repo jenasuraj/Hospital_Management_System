@@ -1,6 +1,5 @@
-"use client";
-import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import axios from "axios";
+/*"use client";
+import React, { createContext, useContext, ReactNode } from "react";
 
 interface AuthContextType {
   authenticated: boolean;
@@ -12,25 +11,12 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [authenticated, setAuthenticated] = useState(false);
-  
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        await axios.get("/api/auth/"); // check if user is logged in
-        setAuthenticated(true);
-      } catch (err) {
-        setAuthenticated(false);
-      }
-    };
-    fetchUser();
-  }, []);
-  console.log("context data is",authenticated)
+
 
   return (
-    <AuthContext.Provider value={{ authenticated, setAuthenticated }}>
+    <AuthContext.Provider value={}>
       {children}
     </AuthContext.Provider>
   );
 };
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => useContext(AuthContext);*/
