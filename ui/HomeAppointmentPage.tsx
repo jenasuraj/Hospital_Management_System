@@ -1,5 +1,5 @@
 
-import doctors from "@/data/Doctor";
+import { doctors } from "@/data/Doctor";
 import Image from "next/image";
 
 const HomeAppointmentPage = () => {
@@ -31,7 +31,7 @@ const HomeAppointmentPage = () => {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-500 flex flex-col justify-end p-4">
+                <div className="absolute inset-0   bg-black/40 group-hover:bg-black/60 transition-all duration-500 flex flex-col justify-end p-4">
                   <h2 className="text-lg font-semibold">{item.name}</h2>
                   <p className="text-sm text-gray-300">{item.genre}</p>
                   <p className="text-xs text-gray-400">{item.experience}</p>

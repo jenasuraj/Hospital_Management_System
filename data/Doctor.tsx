@@ -127,35 +127,40 @@ export const dashboard_items = [
     name: "Dashboard",
     icon:<SlHome size={20}/>,
     back:<GoChevronRight size={20}/>,
-    genre:'patient'
+    genre:'patient',
+    path:'/'
   },
     {
     id: 9,
     name: "Appointment",
     icon:<FaMobileAlt  size={20}/>,
     back:<GoChevronRight size={20}/>,
-    genre:'patient'
+    genre:'patient',
+    path:'/appointment'
   },
   {
     id: 10,
     name: "History",
     icon:<GoHistory size={20}/>,
     back:<GoChevronRight size={20}/>,
-    genre:'patient'
+    genre:'patient',
+    path:'/history'
   },
   {
     id: 11,
     name: "Health Track",
     icon:<TbHealthRecognition size={20}/>,
     back:<GoChevronRight size={20}/>,
-    genre:'patient'
+    genre:'patient',
+    path:'/track_health'
   },
   {
     id: 12,
     name: "Account",
     icon:<IoSettingsOutline size={20}/>,
     back:<GoChevronRight size={20}/>,
-    genre:'patient'
+    genre:'patient',
+    path:'/account'
   },
   {
     id: 13,

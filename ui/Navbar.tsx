@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className={`${!isDashboard ? 'fixed z-50' : "border-b bg-sky-50 border-gray-200"} w-full h-20 bg-black-20 text-white flex items-center justify-between`}>
+      <section className={`${!isDashboard ? 'fixed z-50' : "border-b bg-sky-50 border-gray-300"} w-full h-20 bg-black-20 text-white flex items-center justify-between`}>
         {/* Logo */}
         <h1 className="ml-5 text-2xl flex items-center justify-center gap-2 ">
           {!isDashboard ? (
